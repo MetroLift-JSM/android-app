@@ -1,0 +1,249 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#FFFFFF">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <!-- 상단 파란 배경 -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="72dp"
+            android:background="#2C3E70"
+            android:gravity="center">
+
+            <ImageView
+                android:layout_width="36dp"
+                android:layout_height="36dp"
+                android:src="@drawable/train_top"
+                android:contentDescription="지하철 아이콘"
+                android:scaleType="fitCenter" />
+        </LinearLayout>
+
+        <!-- 안내 문구 -->
+        <TextView
+            android:id="@+id/guideText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="원하는 역을 선택해주세요"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            android:gravity="center"
+            android:textAlignment="center"
+            android:layout_marginTop="24dp"
+            android:layout_marginBottom="24dp"
+            android:textColor="#000000" />
+
+        <!-- 버튼 행 1: 부산역 / 서면역 -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center"
+            android:layout_marginBottom="16dp">
+
+            <!-- 부산역 -->
+            <LinearLayout
+                android:id="@+id/btnBusan"
+                android:layout_width="140dp"
+                android:layout_height="80dp"
+                android:layout_marginEnd="8dp"
+                android:orientation="vertical"
+                android:background="@drawable/rounded_border"
+                android:gravity="center"
+                android:padding="6dp">
+                <TextView
+                    android:id="@+id/busanText"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="부산역"
+                    android:textStyle="bold"
+                    android:textSize="14sp"
+                    android:gravity="center"
+                    android:textAlignment="center" />
+                <ImageView
+                    android:layout_width="20dp"
+                    android:layout_height="20dp"
+                    android:src="@drawable/line1" />
+            </LinearLayout>
+
+            <!-- 서면역 -->
+            <LinearLayout
+                android:id="@+id/btnSeomyeon"
+                android:layout_width="140dp"
+                android:layout_height="80dp"
+                android:layout_marginStart="8dp"
+                android:orientation="vertical"
+                android:background="@drawable/rounded_border"
+                android:gravity="center"
+                android:padding="6dp">
+                <TextView
+                    android:id="@+id/seomyeonText"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="서면역"
+                    android:textStyle="bold"
+                    android:textSize="14sp"
+                    android:gravity="center"
+                    android:textAlignment="center" />
+                <LinearLayout
+                    android:orientation="horizontal"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content">
+                    <ImageView
+                        android:layout_width="20dp"
+                        android:layout_height="20dp"
+                        android:src="@drawable/line1" />
+                    <ImageView
+                        android:layout_width="20dp"
+                        android:layout_height="20dp"
+                        android:layout_marginStart="4dp"
+                        android:src="@drawable/line2" />
+                </LinearLayout>
+            </LinearLayout>
+        </LinearLayout>
+
+        <!-- 버튼 행 2: 연산역 / 사상역 -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center"
+            android:layout_marginBottom="16dp">
+
+            <!-- 연산역 -->
+            <LinearLayout
+                android:id="@+id/btnYeonsan"
+                android:layout_width="140dp"
+                android:layout_height="80dp"
+                android:layout_marginEnd="8dp"
+                android:orientation="vertical"
+                android:background="@drawable/rounded_border"
+                android:gravity="center"
+                android:padding="6dp">
+                <TextView
+                    android:id="@+id/yeonsanText"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="연산역"
+                    android:textStyle="bold"
+                    android:textSize="14sp"
+                    android:gravity="center"
+                    android:textAlignment="center" />
+                <LinearLayout
+                    android:orientation="horizontal"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content">
+                    <ImageView
+                        android:layout_width="20dp"
+                        android:layout_height="20dp"
+                        android:src="@drawable/line1" />
+                    <ImageView
+                        android:layout_width="20dp"
+                        android:layout_height="20dp"
+                        android:layout_marginStart="4dp"
+                        android:src="@drawable/line3" />
+                </LinearLayout>
+            </LinearLayout>
+
+            <!-- 사상역 -->
+            <LinearLayout
+                android:id="@+id/btnSasang"
+                android:layout_width="140dp"
+                android:layout_height="80dp"
+                android:layout_marginStart="8dp"
+                android:orientation="vertical"
+                android:background="@drawable/rounded_border"
+                android:gravity="center"
+                android:padding="6dp">
+                <TextView
+                    android:id="@+id/sasangText"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="사상역"
+                    android:textStyle="bold"
+                    android:textSize="14sp"
+                    android:gravity="center"
+                    android:textAlignment="center" />
+                <LinearLayout
+                    android:orientation="horizontal"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content">
+                    <ImageView
+                        android:layout_width="20dp"
+                        android:layout_height="20dp"
+                        android:src="@drawable/line2" />
+                    <ImageView
+                        android:layout_width="20dp"
+                        android:layout_height="20dp"
+                        android:layout_marginStart="4dp"
+                        android:src="@drawable/linegyeong" />
+                </LinearLayout>
+            </LinearLayout>
+        </LinearLayout>
+
+        <!-- 버튼 행 3: 다대포 / 해운대 -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center"
+            android:layout_marginBottom="16dp">
+
+            <!-- 다대포해수욕장역 (줄바꿈) -->
+            <LinearLayout
+                android:id="@+id/btnDadaepo"
+                android:layout_width="140dp"
+                android:layout_height="80dp"
+                android:layout_marginEnd="8dp"
+                android:orientation="vertical"
+                android:background="@drawable/rounded_border"
+                android:gravity="center"
+                android:padding="6dp">
+                <TextView
+                    android:id="@+id/dadaepoText"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="다대포\n해수욕장역"
+                    android:textStyle="bold"
+                    android:textSize="13sp"
+                    android:gravity="center"
+                    android:textAlignment="center" />
+                <ImageView
+                    android:layout_width="20dp"
+                    android:layout_height="20dp"
+                    android:src="@drawable/line1" />
+            </LinearLayout>
+
+            <!-- 해운대역 -->
+            <LinearLayout
+                android:id="@+id/btnHaeundae"
+                android:layout_width="140dp"
+                android:layout_height="80dp"
+                android:layout_marginStart="8dp"
+                android:orientation="vertical"
+                android:background="@drawable/rounded_border"
+                android:gravity="center"
+                android:padding="6dp">
+                <TextView
+                    android:id="@+id/haeundaeText"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="해운대역"
+                    android:textStyle="bold"
+                    android:textSize="14sp"
+                    android:gravity="center"
+                    android:textAlignment="center" />
+                <ImageView
+                    android:layout_width="20dp"
+                    android:layout_height="20dp"
+                    android:src="@drawable/line2" />
+            </LinearLayout>
+        </LinearLayout>
+    </LinearLayout>
+</ScrollView>
