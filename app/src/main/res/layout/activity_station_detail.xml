@@ -1,60 +1,64 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/scrollView"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
-    android:gravity="center"
-    android:padding="16dp">
+    android:fillViewport="true"
+    android:background="#FFFFFF"
+    tools:context=".StationDetailActivity">
 
-    <TextView
-        android:id="@+id/tvStationName"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="역 이름"
-        android:textSize="24sp"
-        android:textStyle="bold" />
-</LinearLayout>
-    <?xml version="1.0" encoding="utf-8"?>
-<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
-xmlns:tools="http://schemas.android.com/tools"
-android:id="@+id/scrollView"
-android:layout_width="match_parent"
-android:layout_height="match_parent"
-android:fillViewport="true"
-android:background="#FFFFFF"
-tools:context=".StationDetailActivity">
-
-<LinearLayout
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:orientation="vertical"
-    android:padding="16dp">
-
-    <!-- 역 이름 -->
-    <TextView
-        android:id="@+id/tvStationName"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="역 이름"
-        android:textSize="24sp"
-        android:textStyle="bold"
-        android:gravity="center"
-        android:layout_marginBottom="16dp" />
-
-    <!-- 확대/축소 가능한 이미지 -->
-    <com.github.chrisbanes.photoview.PhotoView
-        android:id="@+id/stationImage"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:adjustViewBounds="true"
-        android:scaleType="fitCenter"
-        android:layout_marginBottom="24dp" />
-
-    <!-- 엘리베이터 버튼들 들어갈 영역 -->
     <LinearLayout
-        android:id="@+id/elevatorButtonContainer"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="vertical" />
-</LinearLayout>
+        android:orientation="vertical"
+        android:padding="16dp">
+
+        <!-- 역 이름 -->
+        <TextView
+            android:id="@+id/tvStationName"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="역 이름"
+            android:textSize="24sp"
+            android:textStyle="bold"
+            android:gravity="center"
+            android:fontFamily="@font/gmarketsans_medium"
+            android:layout_marginBottom="16dp" />
+
+        <!-- 확대/축소 가능한 이미지 -->
+        <!--        <com.github.chrisbanes.photoview.PhotoView-->
+        <!--            android:id="@+id/stationImage"-->
+        <!--            android:layout_width="match_parent"-->
+        <!--            android:layout_height="wrap_content"-->
+        <!--            android:adjustViewBounds="true"-->
+        <!--            android:scaleType="fitCenter"-->
+        <!--            android:layout_marginBottom="24dp" />-->
+
+        <!--        <com.github.chrisbanes.photoview.PhotoView-->
+        <!--            android:id="@+id/photo_view"-->
+        <!--            android:layout_width="match_parent"-->
+        <!--            android:layout_height="match_parent"/>-->
+
+
+
+        <!-- 확대/축소 가능한 이미지 -->
+        <com.github.chrisbanes.photoview.PhotoView
+            android:id="@+id/photo_view"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:adjustViewBounds="true"
+            android:scaleType="fitCenter"
+            android:layout_marginBottom="24dp"
+            android:src="@drawable/busan" />
+
+        <!-- 엘리베이터 버튼 영역 -->
+        <LinearLayout
+            android:id="@+id/elevatorButtonContainer"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_marginTop="20dp"/>
+
+    </LinearLayout>
 </ScrollView>
