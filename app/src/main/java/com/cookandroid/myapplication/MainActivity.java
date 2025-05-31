@@ -3,7 +3,7 @@ package com.cookandroid.myapplication;
 import android.content.Intent;
 import android.graphics.Typeface;
 import android.os.Bundle;
-import android.view.View;
+import android.util.Log;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
@@ -14,8 +14,13 @@ import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
+
 public class MainActivity extends AppCompatActivity {
     LinearLayout btnBusan, btnSeomyeon, btnYeonsan, btnSasang, btnDadaepo, btnHaeundae;
+    ApiService apiService;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -29,12 +34,11 @@ public class MainActivity extends AppCompatActivity {
             return insets;
         });
 
-        // 💡 GmarketSansMedium 폰트 적용
-        Typeface gmarketFont = ResourcesCompat.getFont(this,R.font.gmarketsans_medium);
+        Typeface gmarketFont = ResourcesCompat.getFont(this, R.font.gmarketsans_medium);
 
         int[] textIds = {
-                R.id.guideText, R.id.busanText, R.id.seomyeonText, R.id.yeonsanText,
-                R.id.sasangText, R.id.dadaepoText, R.id.haeundaeText
+                R.id.guideText, R.id.busanText, R.id.seomyeonText,
+                R.id.yeonsanText, R.id.sasangText, R.id.dadaepoText, R.id.haeundaeText
         };
 
         for (int id : textIds) {
@@ -42,7 +46,6 @@ public class MainActivity extends AppCompatActivity {
             tv.setTypeface(gmarketFont);
         }
 
-        // 버튼 연결
         btnBusan = findViewById(R.id.btnBusan);
         btnSeomyeon = findViewById(R.id.btnSeomyeon);
         btnYeonsan = findViewById(R.id.btnYeonsan);
@@ -50,7 +53,9 @@ public class MainActivity extends AppCompatActivity {
         btnDadaepo = findViewById(R.id.btnDadaepo);
         btnHaeundae = findViewById(R.id.btnHaeundae);
 
-        // 클릭 리스너
+        //  RetrofitClient 통해 apiService 초기화
+        apiService = RetrofitClient.getClient().create(ApiService.class);
+
         btnBusan.setOnClickListener(view -> moveToDetail("부산역"));
         btnSeomyeon.setOnClickListener(view -> moveToDetail("서면역"));
         btnYeonsan.setOnClickListener(view -> moveToDetail("연산역"));
@@ -60,6 +65,20 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void moveToDetail(String stationName) {
+        RequestData data = new RequestData(stationName);
+        Call<Void> call = apiService.sendStation(data);
+        call.enqueue(new Callback<Void>() {
+            @Override
+            public void onResponse(Call<Void> call, Response<Void> response) {
+                Log.d("RETROFIT", "서버 전송 성공");
+            }
+
+            @Override
+            public void onFailure(Call<Void> call, Throwable t) {
+                Log.e("RETROFIT", "서버 전송 실패: " + t.getMessage());
+            }
+        });
+
         Intent intent = new Intent(MainActivity.this, StationDetailActivity.class);
         intent.putExtra("station", stationName);
         startActivity(intent);
